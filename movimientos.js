@@ -1,7 +1,7 @@
 /**
  * @file movimientos.js
  * @description Controla la animación del formulario entre Sign In y Sign Up.
- * @author Galyo
+ * @author Kevin, Juan y Diego
  */
 
 /** 
