@@ -7,30 +7,33 @@
     <link rel="stylesheet" href="/css/test.css"> <!-- Enlace al archivo de estilos CSS -->
 </head>
 <body>
-    <h2>WordShake Capi</h2> <!-- Título principal de la página -->
+    <!-- Botón para cambiar el idioma -->
+    <button class="ghost" id="language-toggle" style="position: absolute; top: 10px; right: 10px;">EN/ES</button>
+    
+    <h2 id="main-title">WordShake Capi</h2> <!-- Título principal de la página -->
 
     <div class="container" id="container"> <!-- Contenedor principal -->
 
         <!-- Contenedor del formulario de registro -->
         <div class="form-container sign-up-container">
             <form action="#">
-                <h1>Create Account</h1> <!-- Título del formulario de registro -->
-                <span>or use your email for registration</span> <!-- Texto informativo -->
-                <input type="text" placeholder="Name" /> <!-- Campo para el nombre -->
-                <input type="email" placeholder="Email" /> <!-- Campo para el email -->
-                <input type="password" placeholder="Password" /> <!-- Campo para la contraseña -->
-                <button>Crear</button> <!-- Botón para enviar el formulario -->
+                <h1 id="create-account-title">Create Account</h1> <!-- Título del formulario de registro -->
+                <span id="registration-info">or use your email for registration</span> <!-- Texto informativo -->
+                <input type="text" id="name-input" placeholder="Name" /> <!-- Campo para el nombre -->
+                <input type="email" id="email-input" placeholder="Email" /> <!-- Campo para el email -->
+                <input type="password" id="password-input" placeholder="Password" /> <!-- Campo para la contraseña -->
+                <button id="create-button">Create</button> <!-- Botón para enviar el formulario -->
             </form>
         </div>
 
         <!-- Contenedor del formulario de inicio de sesión -->
         <div class="form-container sign-in-container">
             <form action="#">
-                <h1>Iniciar Sesión</h1> <!-- Título del formulario de inicio de sesión -->
-                <span>or use your account</span> <!-- Texto informativo -->
-                <input type="email" placeholder="Email" /> <!-- Campo para el email -->
-                <input type="password" placeholder="Password" /> <!-- Campo para la contraseña -->
-                <button>Empezar</button> <!-- Botón para iniciar sesión -->
+                <h1 id="sign-in-title">Sign in</h1> <!-- Título del formulario de inicio de sesión -->
+                <span id="login-info">or use your account</span> <!-- Texto informativo -->
+                <input type="email" id="login-email-input" placeholder="Email" /> <!-- Campo para el email -->
+                <input type="password" id="login-password-input" placeholder="Password" /> <!-- Campo para la contraseña -->
+                <button id="login-button">Start</button> <!-- Botón para iniciar sesión -->
             </form>
         </div>
 
@@ -40,15 +43,15 @@
                 
                 <!-- Panel izquierdo del overlay (para iniciar sesión) -->
                 <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1> <!-- Mensaje de bienvenida -->
-                    <p>To keep connected with us please login with your personal info</p> <!-- Texto informativo -->
+                    <h1 id="welcome-back">Welcome Back!</h1> <!-- Mensaje de bienvenida -->
+                    <p id="login-prompt">To keep connected with us please login with your personal info</p> <!-- Texto informativo -->
                     <button class="ghost" id="signIn">Sign In</button> <!-- Botón para cambiar a inicio de sesión -->
                 </div>
 
                 <!-- Panel derecho del overlay (para registrarse) -->
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1> <!-- Mensaje de bienvenida -->
-                    <p>Enter your personal details and start journey with us</p> <!-- Texto informativo -->
+                    <h1 id="hello-friend">Hello, Friend!</h1> <!-- Mensaje de bienvenida -->
+                    <p id="registration-prompt">Enter your personal details and start journey with us</p> <!-- Texto informativo -->
                     <button class="ghost" id="signUp">Sign Up</button> <!-- Botón para cambiar a registro -->
                 </div>
 
@@ -69,5 +72,6 @@
 
     <!-- Enlace al archivo de JavaScript para manejar interacciones -->
     <script src="movimientos.js"></script>
+    <script src="language.js"></script> <!-- Enlace al archivo de JavaScript para cambiar el idioma -->
 </body>
 </html>
