@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordShake Capi</title>
-    <link rel="stylesheet" href="/css/test.css"> <!-- Enlace al archivo de estilos CSS -->
+    <link id="themeStylesheet" rel="stylesheet" href="/css/styleclaro.css"> <!-- Enlace a los estilos por defecto -->
 </head>
 <body>
     <!-- Botón para cambiar el idioma -->
     <button class="ghost" id="language-toggle" style="position: absolute; top: 10px; right: 10px;">EN/ES</button>
     
+    
+    <!-- Botón para cambiar el tema -->
+    <button class="ghost" id="theme-toggle" style="position: absolute; top: 90px; right: 10px;">Modo Oscuro</button>
+
     <h2 id="main-title">WordShake Capi</h2> <!-- Título principal de la página -->
 
     <div class="container" id="container"> <!-- Contenedor principal -->
@@ -73,5 +77,28 @@
     <!-- Enlace al archivo de JavaScript para manejar interacciones -->
     <script src="movimientos.js"></script>
     <script src="language.js"></script> <!-- Enlace al archivo de JavaScript para cambiar el idioma -->
+
+    <script>
+        const themeButton = document.getElementById('theme-toggle');
+        const themeStylesheet = document.getElementById('themeStylesheet');
+
+        // Verificar si hay un tema guardado en localStorage
+        if (localStorage.getItem('theme') === 'oscuro') {
+            themeStylesheet.setAttribute('href', '/css/test.css');
+            themeButton.textContent = 'Modo Claro';
+        }
+
+        themeButton.addEventListener('click', () => {
+            if (themeStylesheet.getAttribute('href') === '/css/styleclaro.css') {
+                themeStylesheet.setAttribute('href', '/css/test.css');
+                themeButton.textContent = 'Modo Claro';
+                localStorage.setItem('theme', 'oscuro'); // Guardar en localStorage
+            } else {
+                themeStylesheet.setAttribute('href', '/css/styleclaro.css');
+                themeButton.textContent = 'Modo Oscuro';
+                localStorage.setItem('theme', 'claro'); // Guardar en localStorage
+            }
+        });
+    </script>
 </body>
 </html>
