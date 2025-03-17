@@ -14,6 +14,10 @@
     <!-- Botón para cambiar el tema -->
     <button class="ghost" id="theme-toggle" style="position: absolute; top: 90px; right: 10px;">Modo Oscuro</button>
 
+    <!-- Añadir el botón de ayuda -->
+    <button class="ghost" id="help-button" style="position: absolute; top: 10px; left: 10px;">?</button>
+
+
     <h2 id="main-title">WordShake Capi</h2> <!-- Título principal de la página -->
 
     <div class="container" id="container"> <!-- Contenedor principal -->
@@ -76,6 +80,7 @@
 
     <!-- Enlace al archivo de JavaScript para manejar interacciones -->
     <script src="movimientos.js"></script>
+    
     <script src="language.js"></script> <!-- Enlace al archivo de JavaScript para cambiar el idioma -->
 
     <script>
@@ -98,6 +103,10 @@
                 themeButton.textContent = 'Modo Oscuro';
                 localStorage.setItem('theme', 'claro'); // Guardar en localStorage
             }
+        });
+        const helpButton = document.getElementById('help-button');
+        helpButton.addEventListener('click', () => {
+            window.location.href = 'rules.html';
         });
     </script>
 </body>

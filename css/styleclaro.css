@@ -25,6 +25,10 @@ h2 {
 	text-align: center;
 	color: #6D597A;
 }
+h3 {
+	text-align: center;
+	color: #6D597A;
+  }
 
 p {
 	font-size: 14px;
@@ -33,6 +37,8 @@ p {
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
 	color: #6D597A;
+	padding: 10px; /* Espacio interno para evitar que el texto se choque con el borde */
+
 }
 
 span {

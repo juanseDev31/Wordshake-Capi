@@ -47,11 +47,12 @@ body {
 /*
   Encabezados
 
-  Estilos para los elementos h1 y h2.
+  Estilos para los elementos h1, h2 y h3.
 
   Markup:
   <h1>Encabezado principal</h1>
   <h2>Subtítulo</h2>
+  <h3>Subtítulo menor</h3>
 
   Styleguide 1.2
 */
@@ -62,6 +63,11 @@ h1 {
 }
 
 h2 {
+  text-align: center;
+  color: #f1f1f1; /* Blanco claro */
+}
+
+h3 {
   text-align: center;
   color: #f1f1f1; /* Blanco claro */
 }
@@ -83,6 +89,7 @@ p {
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
   color: #bbb; /* Gris claro */
+  padding: 10px; /* Espacio interno para evitar que el texto se choque con el borde */
 }
 /*
   Enlaces
@@ -100,7 +107,19 @@ a {
     text-decoration: none;
     margin: 15px 0;
   }
-  
+/*
+  Estilos para los elementos de lista <li>.
+
+  Markup:
+  <li>Elemento de lista</li>
+
+  Styleguide 1.5
+*/
+li {
+    
+    color: #f1f1f1; /* Blanco claro */
+  }
+
   /*
     Botones
   
