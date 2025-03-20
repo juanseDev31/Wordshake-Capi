@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 score7Letters: '7-letter words: 5 points',
                 score8Letters: '8 or more letters: 11 points',
                 maximizeScore: 'Try to find the longest words to maximize your score!',
+                scoresTitle: 'Top Scores'
             },
             es: {
                 mainTitle: 'Bienvenido a WordShake Capi',
@@ -104,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 score7Letters: 'Palabras de 7 letras: 5 puntos',
                 score8Letters: '8 o más letras: 11 puntos',
                 maximizeScore: '¡Intenta encontrar las palabras más largas para maximizar tu puntuación!',
+                scoresTitle: 'Mejores Puntajes'
             }
         };
 
@@ -126,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
             emailInput: document.getElementById('email-input'),
             passwordInput: document.getElementById('password-input'),
             loginEmailInput: document.getElementById('login-email-input'),
-            loginPasswordInput: document.getElementById('login-password-input')
+            loginPasswordInput: document.getElementById('login-password-input'),
+            scoresTitle: document.getElementById('scores-title')
         };
 
         // Obtiene los elementos del DOM que necesitan ser traducidos para rules.html
