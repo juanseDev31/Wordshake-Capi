@@ -12,11 +12,21 @@
     
     
     <!-- Botón para cambiar el tema -->
-    <button class="ghost" id="theme-toggle" style="position: absolute; top: 90px; right: 10px;">Modo Oscuro</button>
+    <button class="ghost" id="theme-toggle" style="position: absolute; top: 70px; right: 10px;">Modo Oscuro</button>
 
     <!-- Añadir el botón de ayuda -->
     <button class="ghost" id="help-button" style="position: absolute; top: 10px; left: 10px;">?</button>
 
+    <!-- Añadir el botón de mejores puntajes -->
+    <button class="ghost" id="scores-button" style="position: absolute; top: 70px; left: 10px;">🏆</button>
+
+    <!-- Contenedor para la pestaña de mejores puntajes -->
+    <div id="scores-panel" class="container" style="display: none; position: fixed; top: 52%; left: 12%; transform: translate(-50%, -50%); padding: 20px; width: 400px; max-width: 90%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3 id="scores-title">Top Scores</h3> <!-- Añadir id="scores-title" -->
+        <ul id="scores-list">
+            <!-- Aquí se añadirán los puntajes -->
+        </ul>
+    </div>
 
     <h2 id="main-title">WordShake Capi</h2> <!-- Título principal de la página -->
 
@@ -107,6 +117,40 @@
         const helpButton = document.getElementById('help-button');
         helpButton.addEventListener('click', () => {
             window.location.href = 'rules.html';
+        });
+
+        document.getElementById('login-button').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita el envío del formulario
+        window.location.href = 'WordShake.html'; // Redirige a WordShake.html
+        });
+
+        
+
+    </script>
+    <script>
+        const scoresButton = document.getElementById('scores-button');
+        const scoresPanel = document.getElementById('scores-panel');
+
+        scoresButton.addEventListener('click', () => {
+            if (scoresPanel.style.display === 'none') {
+                scoresPanel.style.display = 'block';
+            } else {
+                scoresPanel.style.display = 'none';
+            }
+        });
+
+        // Ejemplo de puntajes (puedes reemplazar esto con datos reales)
+        const scores = [
+            { name: 'Player 1', score: 100 },
+            { name: 'Player 2', score: 90 },
+            { name: 'Player 3', score: 80 }
+        ];
+
+        const scoresList = document.getElementById('scores-list');
+        scores.forEach(score => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${score.name}: ${score.score}`;
+            scoresList.appendChild(listItem);
         });
     </script>
 </body>

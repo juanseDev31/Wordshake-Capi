@@ -472,6 +472,27 @@ input {
 }
 
 /*
+  Contenedor de mejores puntajes
+
+  Define los estilos para el contenedor de los mejores puntajes.
+
+  Markup:
+  <div id="scores-panel">
+    <h3>Mejores Puntajes</h3>
+    <ul id="scores-list">
+      <!-- Aquí se añadirán los puntajes -->
+    </ul>
+  </div>
+
+  Styleguide 8.2
+*/
+#scores-panel {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #363636;
+}
+
+/*
    Panel derecho de la superposición
    Muestra el contenido cuando el usuario quiere registrarse.
    

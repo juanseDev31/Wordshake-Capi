@@ -212,6 +212,12 @@ input {
 	transform: translateX(0);
 }
 
+#scores-panel {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+
 .overlay-right {
 	right: 0;
 	transform: translateX(0);
