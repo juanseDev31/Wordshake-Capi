@@ -118,6 +118,13 @@
         helpButton.addEventListener('click', () => {
             window.location.href = 'rules.html';
         });
+
+        const loginButton = document.getElementById('login-button');
+
+        loginButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Evita que el formulario se envíe por defecto
+            window.location.href = 'WordShake.html'; // Redirige a WordShake.html
+        });
     </script>
     <script>
         const scoresButton = document.getElementById('scores-button');
