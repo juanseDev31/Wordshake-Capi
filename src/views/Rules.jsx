@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "../components/ThemeToggle";
+import { useTheme } from "../components/ThemeContext";
 
 function Rules() {
     const navigate = useNavigate();
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "claro");
+    const { theme } = useTheme(); // Obtener el tema desde el contexto
     const [language, setLanguage] = useState("en"); // Estado para el idioma
 
     // Definición de las traducciones para inglés y español
@@ -58,10 +60,7 @@ function Rules() {
         }
     }, [theme]);
 
-    // Cambiar el tema
-    const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === "claro" ? "oscuro" : "claro"));
-    };
+    
 
     // Cambiar el idioma
     const toggleLanguage = () => {
@@ -76,11 +75,8 @@ function Rules() {
                 {language === "en" ? "EN" : "ES"}
             </button>
 
-            {/* Botón para cambiar el tema */}
-            <button className="ghost" onClick={toggleTheme}
-                style={{ position: "absolute", top: "90px", right: "10px" }}>
-                {theme === "claro" ? "Modo Oscuro" : "Modo Claro"}
-            </button>
+            {/* 🔄 Botón de cambio de tema */}
+            <ThemeToggle />
 
             {/* Botón para volver al inicio */}
             <button className="ghost" onClick={() => navigate("/")}
