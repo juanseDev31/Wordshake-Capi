@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./views/home.jsx";
+import Home from "./views/Home.jsx";
 import Rules from "./views/Rules.jsx";
 import Game from "./views/Game.jsx"; // Importa el componente Game
 import { ThemeProvider } from "./components/ThemeContext";

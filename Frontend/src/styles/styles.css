@@ -348,3 +348,413 @@ footer i {
 footer a {
   text-decoration: none;
 }
+
+/* ========== ESTILOS MEJORADOS PARA GAME.JSX ========== */
+/* Basado en la paleta del Home pero con enfoque en rojos */
+:root {
+  --rojo-principal: #e74c3c;
+  --rojo-oscuro: #c0392b;
+  --rojo-claro: #ff7f6d;
+  --crema: #fff5e6;
+  --beige: #f8d7b3;
+  --dorado: #ffd700;
+  --sombra: rgba(0, 0, 0, 0.2);
+}
+
+/* Fondo principal con textura sutil */
+.game-jsx-root {
+  background: 
+    linear-gradient(135deg, var(--rojo-principal), var(--rojo-oscuro)),
+    url('data:image/svg+xml;utf8,<svg opacity="0.03" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23ffffff"/></svg>');
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--crema);
+}
+
+/* Contenedor principal con centrado mejorado */
+.game-main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+/* Botón Home con estilo similar al Home */
+.game-home-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--crema);
+  color: var(--crema);
+  border-radius: 25px;
+  padding: 6px 14px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.game-home-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Contenido central con mejor centrado */
+.game-content-center {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+}
+
+/* Título con efecto similar al Home */
+.game-title {
+  margin-bottom: 15px;
+  color: var(--crema);
+  text-shadow: 2px 2px 4px var(--sombra);
+  font-weight: 800;
+  letter-spacing: 1px;
+  position: relative;
+  font-size: 1.8rem;
+}
+
+.game-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--dorado);
+  margin: 8px auto 0;
+}
+
+/* ÚNICO CAMBIO REALIZADO: Color de fondo de la cuadrícula */
+.letter-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin: 5px auto 5px -10px; /* Añadido margen izquierdo negativo */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: scale(0.85);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Botones de letras con estilo mejorado */
+.letter-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--crema);
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.letter-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.letter-button.selected {
+  background: var(--rojo-claro);
+  color: white;
+  border-color: var(--dorado);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Área de palabra con estilo elegante */
+.word-display-container {
+  width: 100%;
+  margin: 5px 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.word-display-title {
+  margin: 0 0 10px 0;
+  color: var(--beige);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.word-display {
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px var(--sombra);
+}
+
+.word-display-placeholder {
+  color: var(--beige);
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Botón de reinicio con estilo llamativo */
+.reset-game-button {
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: var(--crema);
+  color: var(--rojo-principal);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+
+.reset-game-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Footer con estilo cohesivo */
+.game-footer {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--beige);
+  margin-top: auto;
+}
+
+.game-footer p {
+  margin: 0;
+}
+
+/* Efectos de movimiento */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===== NUEVOS ESTILOS PARA EL COMPORTAMIENTO DE OCULTAR LETRAS ===== */
+
+/* Estado inicial - Letras ocultas */
+.letter-button.hidden {
+  color: transparent !important;
+  cursor: default !important;
+}
+
+.letter-button.hidden::after {
+  content: "?";
+  color: var(--beige);
+  position: absolute;
+}
+
+.letter-button.hidden:hover {
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Mensaje cuando el juego no ha comenzado */
+.word-display-placeholder.waiting {
+  color: var(--dorado);
+  font-style: normal;
+}
+
+/* Botón de comenzar/reiniciar */
+.reset-game-button.start {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ===== RESPONSIVE ADAPTATIVO ===== */
+@media (max-height: 800px), (max-width: 600px) {
+  .letter-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+  
+  .word-display {
+    font-size: 1.5rem;
+  }
+  
+  .game-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .letter-grid-container {
+    transform: scale(0.75) translateX(-10px); 
+    padding: 15px;
+    gap: 10px;
+  }
+  
+  .word-display-container {
+    padding: 12px;
+  }
+  
+  .reset-game-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .letter-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+  
+  .word-display {
+    font-size: 1.3rem;
+    min-height: 40px;
+  }
+  
+  .letter-grid-container {
+    transform: scale(0.65);
+    padding: 12px;
+  }
+  
+  .game-title {
+    font-size: 1.3rem;
+  }
+  
+  .word-display-title {
+    font-size: 0.85rem;
+  }
+  
+  .game-home-button {
+    top: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .letter-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+  
+  .letter-grid-container {
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  .game-content-center {
+    padding: 5px 0;
+  }
+}
+
+/* ===== CUADRÍCULA MÁS GRANDE ===== */
+.letter-grid-container {
+  transform: scale(1);
+  padding: 25px;
+  gap: 15px;
+}
+
+.letter-button {
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+}
+
+/* ===== ÁREA "TU PALABRA" MÁS PEQUEÑA ===== */
+.word-display-container {
+  padding: 12px 15px;
+  margin: 5px 0 0 0;
+}
+
+.word-display {
+  font-size: 1.6rem;
+  min-height: 40px;
+}
+
+.word-display-title {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+/* ===== AJUSTES RESPONSIVE PARA MANTENER PROPORCIONES ===== */
+@media (max-height: 800px), (max-width: 600px) {
+  .letter-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .letter-grid-container {
+    gap: 12px;
+    padding: 20px;
+  }
+}
+
+@media (max-height: 700px) {
+  .letter-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  .word-display {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .letter-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+.letter-grid-container {
+  transform: scale(1) translateX(-23px);
+  padding: 25px;
+  gap: 15px;
+  margin-left: -10px; /* Añade esto para mantener consistencia */
+}
