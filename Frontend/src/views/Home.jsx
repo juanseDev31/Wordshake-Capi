@@ -9,7 +9,7 @@ function Home() {
     const [showScores, setShowScores] = useState(false);
     const [isRightPanelActive, setIsRightPanelActive] = useState(false);
     const [language, setLanguage] = useState("en"); // Estado para el idioma
-    const [email, setEmail] = useState("");
+    const [usuario, setUsuario] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null); // Para manejar errores
 
@@ -34,7 +34,7 @@ function Home() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ name: email, password }),
+                body: JSON.stringify({ name: usuario, password }),
             });
 
             const data = await response.json(); // Convertir la respuesta a JSON
@@ -93,8 +93,8 @@ function Home() {
                 <div className="form-container sign-up-container">
                     <form>
                         <h1>{language === "en" ? "Create Account" : "Crear Cuenta"}</h1>
-                        <span>{language === "en" ? "or use your email for registration" : "o usa tu correo electrónico para registrarte"}</span>
-                        <input type="text" placeholder={language === "en" ? "Name" : "Nombre"} />
+                        <span>{language === "en" ? "or use your username for registration" : "o usa tu usuario para registrarte"}</span>
+                        <input type="text" placeholder={language === "en" ? "Username" : "Usuario"} />
                         <input type="email" placeholder={language === "en" ? "Email" : "Correo Electrónico"} />
                         <input type="password" placeholder={language === "en" ? "Password" : "Contraseña"} />
                         <button>{language === "en" ? "Create" : "Crear"}</button>
@@ -107,10 +107,10 @@ function Home() {
                         <h1>{language === "en" ? "Sign In" : "Iniciar Sesión"}</h1>
                         <span>{language === "en" ? "or use your account" : "o usa tu cuenta"}</span>
                         <input 
-                            type="email" 
-                            placeholder={language === "en" ? "Email" : "Correo Electrónico"} 
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            type="text" 
+                            placeholder={language === "en" ? "Username" : "Usuario"} 
+                            value={usuario}
+                            onChange={(e) => setUsuario(e.target.value)}
                         />
                         <input 
                             type="password" 
@@ -144,16 +144,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-
-            {/* Footer */}
-            <footer>
-                <p>
-                    Created with ❤️ by
-                    <a href="https://florin-pop.com" target="_blank" rel="noopener noreferrer">Florin Pop</a> - 
-                    Read how I created this 
-                    <a href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/" target="_blank">here</a>.
-                </p>
-            </footer>
         </div>
     );
 }
