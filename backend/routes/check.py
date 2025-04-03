@@ -3,7 +3,7 @@ from spellchecker import SpellChecker
 
 check_word = Blueprint('check_word', __name__)
 
-# Aquí basicamente cree un diccioanrio para asi poder elegir si quiere espaniol o ingles como lenguaj e pa buscar la palabra
+# Aquí basicamente cree un diccioanrio para asi poder elegir si quiere espaniol o ingles como lenguaje pa buscar la palabra
 spell_checkers = {
     "es": SpellChecker(language='es'),  
     "en": SpellChecker(language='en')   
