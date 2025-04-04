@@ -66,11 +66,53 @@ function Game() {
         setTimeLeft(180);
     };
 
-    const handleSubmit = () => {
-        const newWord = selectedLetters.map(item => item.letter).join('');
-        const newScore = Math.floor(Math.random() * 10) + 1;
-        setScoreHistory([{ palabra: newWord, puntos: newScore }, ...scoreHistory]);
-        setSelectedLetters([]);
+    const handleSubmit = async () => {
+        // Palabras fijas para enviar (alterna entre ellas)
+        const testWords = {
+            es: "correr",
+            en: "run" // Añadido por si acaso necesitas inglés
+        };
+    
+        // Seleccionamos la palabra en español
+        const wordToSend = testWords.es;
+    
+        try {
+            const response = await fetch("http://127.0.0.1:5000/api/check", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ 
+                    word: wordToSend,
+                    language: "es" // Fijamos español como idioma
+                }),
+            });
+    
+            const data = await response.json();
+    
+            if (data.score) {
+                // Mostramos en el historial la palabra que el usuario formó realmente
+                const userWord = selectedLetters.map(item => item.letter).join('');
+                const newScore = data.score;
+    
+                setScoreHistory([{ 
+                    palabra: userWord, 
+                    puntos: newScore 
+                }, ...scoreHistory]);
+    
+                setSelectedLetters([]);
+            } else if (data.error) {
+                console.error("Error del backend:", data.error);
+            }
+        } catch (err) {
+            console.error("Error de conexión:", err);
+    
+            // Fallback: si falla la conexión, usa el sistema actual
+            const newWord = selectedLetters.map(item => item.letter).join('');
+            const newScore = Math.floor(Math.random() * 10) + 1;
+            setScoreHistory([{ palabra: newWord, puntos: newScore }, ...scoreHistory]);
+            setSelectedLetters([]);
+        }
     };
 
     const isLetterSelected = (row, col) => {
